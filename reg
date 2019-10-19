@@ -1,0 +1,105 @@
+################
+from os import system
+from time import sleep
+buat = open ("ident","w")
+buat.close ()
+red = ('\033[31;1m')
+green = ('\033[32;1m')
+yellow = ('\033[33;1m')
+blue = ('\033[34;1m')
+indigo = ('\033[35;1m')
+cyan = ('\033[36;1m')
+def reg ():
+	system ("clear")
+	while True:
+		try:
+			nama = str (input ("""
+"""+blue+"""╔═══════════════════════╗
+"""+blue+"""║  """+yellow+""" ᗰᗩᔑᑌᏦᗩᑎ ᑎᗩᗰᗩ ᗩᑎᗞᗩ  """+blue+""" ║
+"""+blue+"""╠═══════════════════════╣
+"""+blue+"""║ """+cyan+"""   ᕼᗩᖇᑌᔑ 7 ᏦᗩᖇᗩᏦᎢᗴᖇ  """+blue+""" ║
+"""+blue+"""╚═══════════════════════╝\n>>>"""+red+""""""))
+			buat = open ("ident","a")
+			buat.write ("nama = '"+nama+"'")
+			buat.close ()
+			p = len (nama)
+			if p != 7:
+				print ("anda harus memasukan 7 huruf")
+				print ("yg anda masukan",p,"huruf")
+				sleep (1.5)
+				pass
+			if p == 7 :
+				tangga ()
+				break
+		except KeyboardInterrupt:
+			print ("error")
+		except EOFError:
+			print ("error")
+def tangga ():
+	system ("clear")
+	try:
+			tahun = int (input ("""
+"""+indigo+"""╔═══════════════════════╗
+"""+indigo+"""║ """+yellow+""" ᗰᗩᔑᑌᏦᗩᑎ Ꭲᗩᕼᑌᑎ ᏞᗩᕼᏆᖇ  """+indigo+"""║
+"""+indigo+"""╠═══════════════════════╣
+"""+indigo+"""║ """+cyan+"""    ᑕᝪᑎᎢᝪᕼ : 2003     """+indigo+"""║
+"""+indigo+"""╚═══════════════════════╝\n>>>"""+green+""""""))
+			if tahun in range (1990,2005) :
+				buat = open ("ident","a")
+				buat.write ("\ntahun = '"+str (tahun)+"'")
+				buat.close ()
+			else:
+				print ("silahkan masukan ulang")
+				sleep (1)
+				tangga ()
+			bulan = int (input ("""
+"""+red+"""╔═══════════════════════╗
+"""+red+"""║"""+cyan+"""  ᗰᗩᔑᑌᏦᗩᑎ ᗷᑌᏞᗩᑎ ᏞᗩᕼᏆᖇ  """+red+"""║
+"""+red+"""╠═══════════════════════╣
+"""+red+"""║"""+yellow+"""     ᑕᝪᑎᎢᝪᕼ : 6        """+red+"""║
+"""+red+"""╚═══════════════════════╝\n>>>"""+green+""""""))
+
+			if bulan in range (1,12):
+				buat = open ("ident","a")
+				buat.write ("\nbulan = '"+str (bulan)+"'")
+				umur = int (2019) - int (tahun)
+				buat.write ("\numur = '"+str (umur)+"'")
+				buat.close ()
+			else:
+				print ("silahkan masukan ulang")
+				sleep (1)
+				tangga ()
+			tanggal = int (input ("""
+"""+cyan+"""╔═══════════════════════╗
+"""+cyan+"""║"""+yellow+""" ᗰᗩᔑᑌᏦᗩᑎ ᎢᗩᑎᏀᏀᗩᏞ ᏞᗩᕼᏆᖇ """+cyan+"""║
+"""+cyan+"""╠═══════════════════════╣
+"""+cyan+"""║     ᑕᝪᑎᎢᝪᕼ : 14       """+cyan+"""║
+"""+cyan+"""╚═══════════════════════╝\n>>>"""+yellow+""""""))
+
+
+			if tanggal in range (1,31):
+				buat = open ("ident","a")
+				buat.write ("\ntanggal = '"+str (tanggal)+"'")
+				buat.close ()
+			else:
+				print ("silahkan masukan ulang")
+				sleep (1)
+				tangga ()
+
+
+
+	except ValueError:
+		print ("error")
+		sleep (1)
+		reg ()
+	except KeyboardInterrupt:
+		print ("error")
+		sleep (1)
+		reg ()
+	except EOFError:
+		print ("error")
+		sleep (1)
+		reg ()
+
+reg ()
+
